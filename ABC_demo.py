@@ -6,7 +6,7 @@ from gtts import gTTS
 import os
 import speech_recognition as sr
 import base64
-#import mysql.connector
+import mysql.connector
 import matplotlib.pyplot as plt
 import random
 from PIL import Image
@@ -552,9 +552,9 @@ elif option == "Animal Learning":
             conn.commit()
         except mysql.connector.Error as e:
             st.error(f"Error inserting data into MySQL table: {e}")
-        finally:
-            cursor.close()
-            conn.close()
+        # finally:
+        #     cursor.close()
+        #     conn.close()
 
     def recognize_speech():
         """Recognize speech using microphone input."""
@@ -614,7 +614,7 @@ elif option == "Animal Learning":
 
                 update_mysql_table(selected_animal_name, is_correct, category)
                 
-        num_characteristics = st.selectbox("Select number of characteristics to display:", list(range(1, 21)))
+        num_characteristics = st.selectbox("Select number of characteristics to display:", list(range(2, 21)))
         st.session_state.num_characteristics = num_characteristics
 
         st.subheader(f"{selected_animal_name} Characteristics:")
