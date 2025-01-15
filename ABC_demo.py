@@ -572,7 +572,7 @@ elif option == "Animal Learning":
     def home_page():
         st.title("Animal Sounds Learning Application")
         st.subheader("Choose a Category:")
-        categories = ["Farm Animal", "Sea Creature", "Bird", "Wild Animal", "Jungle Animal"]
+        categories = ["🐄 Farm Animal", "🐠 Sea Creature", "🐦 Bird", "🦁 Wild Animal", "🐒 Jungle Animal"]
         for i, category in enumerate(categories):
             if st.button(category):
                 st.session_state.selected_category = category.lower()
@@ -646,108 +646,119 @@ elif option == "Animal Learning":
     def dashboard_page():
         st.title("Learning Dashboard")
 
-        # Load data from MySQL or mock data
-        df = load_data_from_mysql()  # Replace this with your actual loading function
+        # Load data from MySQL
+        df = load_data_from_mysql()
+
         if df.empty:
             st.warning("No data available.")
             return
 
-        # Sidebar filters for category and animal name
+        # Clean and preprocess data
+        try:
+            df['dates'] = df['dates'].str.strip(",")  # Remove leading/trailing commas if present
+            df['dates'] = pd.to_datetime(df['dates'], format="%Y-%m-%d", errors='coerce')
+        except Exception as e:
+            st.error(f"Error processing date column: {e}")
+            return
+
+        # Sidebar filters
         st.sidebar.header("Filters")
+        time_filter = st.sidebar.radio("View Progress By", ["Daily", "Weekly", "Monthly"])
+
         categories = df['category'].unique()
         selected_category = st.sidebar.selectbox("Select Category", ["All"] + list(categories))
-        
+
         if selected_category != "All":
             df = df[df['category'] == selected_category]
 
         animal_names = df['animal_name'].unique()
         selected_animal = st.sidebar.selectbox("Select Animal", ["All"] + list(animal_names))
-        
+
         if selected_animal != "All":
             df = df[df['animal_name'] == selected_animal]
+
+        # Process data for daily, weekly, or monthly trends
+        if time_filter == "Daily":
+            df['time_period'] = df['dates']
+        elif time_filter == "Weekly":
+            df['time_period'] = df['dates'].dt.to_period('W').apply(lambda r: r.start_time)
+        else:  # Monthly
+            df['time_period'] = df['dates'].dt.to_period('M').apply(lambda r: r.start_time)
+
+        trend_data = df.groupby('time_period')[['attempt', 'correct', 'incorrect']].sum().reset_index()
 
         # Overall summary stats
         total_attempts = df['attempt'].sum()
         total_correct = df['correct'].sum()
         total_incorrect = df['incorrect'].sum()
 
-        # Row-wise layout
-        col1, col2 = st.columns(2)
+        # Display overall statistics
+        st.subheader("Overall Statistics")
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Total Attempts", total_attempts)
+        col2.metric("Total Correct", total_correct)
+        col3.metric("Total Incorrect", total_incorrect)
 
         # Bar chart of attempts over animals
-        with col1:
-            st.subheader("Attempts Over Animal Name")
-            bar_chart_data = df.groupby('animal_name')[['attempt', 'correct', 'incorrect']].sum().reset_index()
-            fig = px.bar(bar_chart_data, x='animal_name', y=['correct', 'incorrect', 'attempt'], barmode='stack', 
-                        labels={'value': 'Count', 'animal_name': 'Animal Name'}, title="Attempts per Animal")
-            st.plotly_chart(fig)
-
-        # Pie chart of correct vs incorrect
-        with col2:
-            st.subheader("Correct Vs Incorrect")
-            pie_data = pd.DataFrame({
-                "Metric": ["Correct", "Incorrect"],
-                "Count": [total_correct, total_incorrect]
-            })
-            fig = px.pie(pie_data, values="Count", names="Metric", title="Correct vs Incorrect Distribution")
-            st.plotly_chart(fig)
-
-        # Line chart for trends over time
-        st.subheader("Trends in Attempts Over dates")
-        trend_data = df.groupby('dates')[['attempt', 'correct', 'incorrect']].sum().reset_index()
-        fig = px.line(trend_data, x='dates', y=['attempt', 'correct', 'incorrect'], 
-                    labels={'value': 'Count', 'dates': 'Day'}, title="Daily Trends")
+        st.subheader("Attempts Over Animal Name")
+        bar_chart_data = df.groupby('animal_name')[['attempt', 'correct', 'incorrect']].sum().reset_index()
+        fig = px.bar(bar_chart_data, x='animal_name', y=['correct', 'incorrect', 'attempt'], barmode='stack',
+                    labels={'value': 'Count', 'animal_name': 'Animal Name'}, title="Attempts per Animal")
         st.plotly_chart(fig)
 
+        # Correct vs Incorrect pie chart
+        st.subheader("Correct Vs Incorrect")
+        pie_data = pd.DataFrame({
+            "Metric": ["Correct", "Incorrect"],
+            "Count": [total_correct, total_incorrect]
+        })
+        fig = px.pie(pie_data, values="Count", names="Metric", title="Correct vs Incorrect Distribution")
+        st.plotly_chart(fig)
 
+        # Trends over selected time period
+        st.subheader(f"Trends in Attempts Over {time_filter.lower()}s")
+        fig = px.line(trend_data, x='time_period', y=['attempt', 'correct', 'incorrect'],
+                    labels={'value': 'Count', 'time_period': f'{time_filter}'}, title=f"{time_filter}-Wise Trends")
+        st.plotly_chart(fig)
 
-        st.title("Learning Dashboard")
+        # Animal distribution pie chart
+        st.subheader("Animal Category Distribution")
+        category_counts = df['category'].value_counts()
+        fig = px.pie(names=category_counts.index, values=category_counts.values, title="Animal Categories")
+        st.plotly_chart(fig)
 
-        # Load data from MySQL
-        df = load_data_from_mysql()  # Assuming this function loads the relevant data
+        # Category-specific report
+        st.subheader("Category Report")
+        filtered_df = df[df['category'] == selected_category] if selected_category != "All" else df
+        attempts = filtered_df['attempt'].sum()
+        correct = filtered_df['correct'].sum()
+        incorrect = filtered_df['incorrect'].sum()
 
-        if df.empty:
-            st.warning("No data available.")
-            return
+        st.write(f"Category: {selected_category if selected_category != 'All' else 'All Categories'}")
+        st.write(f"Total Attempts: {attempts}")
+        st.write(f"Correct: {correct}")
+        st.write(f"Incorrect: {incorrect}")
 
-        # Split screen into two columns
-        col1, col2 = st.columns(2)
+        # Bar chart for category-specific statistics
+        report_data = {'Attempts': attempts, 'Correct': correct, 'Incorrect': incorrect}
+        report_df = pd.DataFrame(list(report_data.items()), columns=["Metric", "Value"])
+        st.bar_chart(report_df.set_index('Metric'))
 
-        # Left column - Pie chart
-        with col1:
-            st.header("Animal Distribution")
-            # Pie chart of the categories
-            category_counts = df['category'].value_counts()
-            fig = px.pie(names=category_counts.index, values=category_counts.values, title="Animal Categories")
-            st.plotly_chart(fig)
+    def load_data_from_mysql():
+     # Connect to MySQL database
+        connection = mysql.connector.connect(
+            host='127.0.0.1',
+            user='root',
+            password='9545883002@Sj',
+            database='customer'
+        )
 
-        # Right column - Animal Category selection
-        with col2:
-            st.header("Select Animal Category")
-            # Dropdown to select animal category
-            selected_category = st.selectbox("Choose an Animal Category", df['category'].unique())
-            
-            # Filter the DataFrame based on selected category
-            filtered_df = df[df['category'] == selected_category]
-            
-            st.write(f"Showing animals for category: {selected_category}")
-            st.dataframe(filtered_df)
+        query = "SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data"
 
-            # Generate and display the statistics (number of attempts, correct, incorrect)
-            attempts = filtered_df['attempt'].sum()
-            correct = filtered_df['correct'].sum()
-            incorrect = filtered_df['incorrect'].sum()
-
-            st.subheader("Category Report")
-            st.write(f"Total Attempts: {attempts}")
-            st.write(f"Correct: {correct}")
-            st.write(f"Incorrect: {incorrect}")
-            
-            # Optionally, you can show a bar chart to visualize the numbers
-            report_data = {'Attempts': attempts, 'Correct': correct, 'Incorrect': incorrect}
-            report_df = pd.DataFrame(list(report_data.items()), columns=["Metric", "Value"])
-            st.bar_chart(report_df.set_index('Metric'))
-    # Session State Initialization
+        df = pd.read_sql(query, con=connection)
+        connection.close()
+        return df
+    
     if "page_index" not in st.session_state:
         st.session_state.page_index = 0  # Home page
     if "test_attempts" not in st.session_state:
