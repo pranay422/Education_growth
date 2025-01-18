@@ -1,0 +1,86 @@
+animal_id,animal_name,animal_category,url
+1,cow,Farm Animals,https://t3.ftcdn.net/jpg/02/36/28/16/360_F_236281663_TzJcMacNnvFZA1QKulpDJoL62qlw6iGP.jpg
+2,buffalo,Farm Animals,https://img.freepik.com/premium-vector/buffalo-vector-cartoon-illustration_1215145-7113.jpg
+3,goat,Farm Animals,https://t4.ftcdn.net/jpg/01/25/32/45/360_F_125324577_8g0CqyMtixFeTyunpDBO4Yt2idzEbhDa.jpg
+4,pig,Farm Animals,https://www.shutterstock.com/image-vector/pig-flat-cartoon-Farm Animals-logo-260nw-2324862757.jpg
+5,sheep,Farm Animals,https://t3.ftcdn.net/jpg/00/97/00/56/360_F_97005676_hEpYC3D0V4Jyuufxm15LWeaj3BYLGQEo.jpg
+6,horse,Farm Animals,https://i.pinimg.com/736x/a9/f9/b5/a9f9b5b02285384d0babd548d86abf0b.jpg
+7,hen,Farm Animals,https://cbx-prod.b-cdn.net/COLOURBOX63926966.jpg?width=800&height=800&quality=70
+8,donkey,Farm Animals,https://media.istockphoto.com/id/1691801174/vector/cute-donkey-cartoon-on-white-background.jpg?s=612x612&w=0&k=20&c=hSiCEvgvMURZd6vSWcCBYhx85fUfMkcrrinFQlKw9UI=
+9,dog,Farm Animals,https://png.pngtree.com/png-vector/20240913/ourlarge/pngtree-vector-cartoon-dog-png-image_12828379.png
+10,ox,Farm Animals,https://www.shutterstock.com/image-vector/little-black-bull-cartoon-animal-600nw-2226008919.jpg
+11,chicken,Farm Animals,https://www.vecteezy.com/png/48394923-young-white-hen-chicken-isolated-on-transparent-background
+12,goose,Farm Animals,https://www.pngwing.com/en/search?q=goose#google_vignette
+13,rabbit,farm Animals,https://purepng.com/photo/2368/animals-white-rabbit
+14,yak,Farm Animals,"""C:\Users\lenovo\Documents\winter_internship\wildanimals\yak.png"""
+15,ostrich,Farm Animals,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/ostrich.webp
+16,rooster,Farm Animals,C:\Users\lenovo\Documents\winter_internship\wildanimals\rooster.avif
+17,camel,Farm Animals,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/camel.webp
+18,emu,Farm Animals,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/emu.webp
+19,cat,Farm Animals,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/cat.webp
+20,mule,Farm Animals,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/mule.webp
+21,fish,Sea Creatures,https://www.shutterstock.com/image-vector/isolated-cute-nemo-fish-cartoon-600nw-2431225233.jpg
+22,dolphin,Sea Creatures,https://c8.alamy.com/comp/2FWRBX3/funny-cute-happy-dolphin-Sea Creatures-creatures-cartoon-marine-animal-character-vector-illustration-isolated-on-white-background-for-children-apparel-prin-2FWRBX3.jpg
+23,shark,Sea Creatures,https://img.freepik.com/free-vector/aggressive-great-white-shark-cartoon_1308-97904.jpg
+24,whale,Sea Creatures,https://static.vecteezy.com/system/resources/thumbnails/007/916/692/small_2x/illustration-of-cute-whale-cartoon-vector.jpg
+25,octopus,Sea Creatures,https://t3.ftcdn.net/jpg/09/25/92/54/360_F_925925441_pBBysPCeScDWPsq4xRbI9eeGIDwDv8HH.jpg
+26,starfish,Sea Creatures,https://img.freepik.com/premium-vector/starfish-vector-clipart-art-illustration-solid-white-background-27_666870-8647.jpg?semt=ais_hybrid
+27,sea lion,Sea Creatures,https://www.shutterstock.com/image-vector/Sea Creatures-lion-happy-face-illustration-260nw-412768711.jpg
+28,crab,Sea Creatures,https://img.freepik.com/premium-vector/little-crab-cartoon-white-background_844724-67.jpg
+29,turtle,Sea Creatures,https://t3.ftcdn.net/jpg/08/54/05/60/360_F_854056040_qrIlNGtJDEvxpN3rIDytauT1SzUaoRCL.jpg
+30,crocodile,Sea Creatures,https://i.pinimg.com/736x/d4/de/bc/d4debcd22707ba09393f601d50dd8aaa.jpg
+31,jellyfish,Sea Creatures,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/jellyfish.webp
+32,lobster,Sea Creatures,C:\Users\lenovo\Documents\winter_internship\wildanimals\lobster.jpeg
+33,seahorse,Sea Creatures,C:\Users\lenovo\Documents\winter_internship\wildanimals\seahorse.jpeg
+34,squid,Sea Creatures,C:\Users\lenovo\Documents\winter_internship\wildanimals\squid.png
+35,swordfish,Sea Creatures,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/sowrdfish.webp
+36,sea urchin,Sea Creatures,C:\Users\lenovo\Documents\winter_internship\wildanimals\seaurchin.jpeg
+37,tuna,Sea Creatures,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/tuna.webp
+38,shrimp,Sea Creatures,C:\Users\lenovo\Documents\winter_internship\wildanimals\shrimp.jpg
+39,cone snail,Sea Creatures,C:\Users\lenovo\Documents\winter_internship\wildanimals\conesnail.jpg
+40,clownfish,Sea Creatures,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/clownfish.webp
+41,sparrow,Bird,https://thumbs.dreamstime.com/b/playful-cartoon-sparrow-doodle-perfect-tshirts-app-icons-charming-d-illustration-sketch-style-colorful-vector-design-337779389.jpg
+42,parrot,Bird,https://st2.depositphotos.com/1967477/7370/v/950/depositphotos_73709339-stock-illustration-cartoon-cute-parrot.jpg
+43,peacock,Bird,https://png.pngtree.com/png-clipart/20240218/original/pngtree-3d-peacock-design-png-image_14353905.png
+44,crow,Bird,https://static.vecteezy.com/system/resources/previews/021/458/237/non_2x/cute-crow-cartoon-on-white-background-vector.jpg
+45,duck,Bird,https://img.freepik.com/free-vector/cute-duck-white_1308-41058.jpg?semt=ais_hybrid
+46,eagle,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\eagle.png
+47,pengiun,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\penguin.jpeg
+48,owl,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\owl.jpeg
+49,flamingo,Bird,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/flamingo.webp
+50,humminbird,Bird,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/hummingbird.webp
+51,woodpecker,Bird,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/woodpecker.webp
+52,pigeon,Bird,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/pigeon.webp
+53,kingfisher,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\kingfisher.png
+54,vulture,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\vulture.jpeg
+55,heron,Bird,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/heron.webp
+56,woodcock,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\woodcock.png
+57,swan,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\swan.png
+58,macaw,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\macaw.jpg
+59,crane,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\crane.avif
+60,seagull,Bird,C:\Users\lenovo\Documents\winter_internship\wildanimals\seagull.jpg
+61,lion,Wild Animmal,https://img.freepik.com/free-psd/3d-rendering-lion-isolated_23-2151673509.jpg?semt=ais_hybrid
+62,tiger,Wild Animmal,https://www.aiscribbles.com/img/variant/large-preview/72517/?v=66aa08
+63,elephant,Wild Animmal,https://www.shutterstock.com/shutterstock/photos/2162378867/display_1500/stock-vector-cartoon-cute-baby-elephant-sitting-2162378867.jpg
+64,giraffe,Wild Animmal,https://t4.ftcdn.net/jpg/02/82/56/21/360_F_282562173_IBawrjFoWRFCv6jpUmvUUpNK7XfZ75BG.jpg
+65,zebra,Wild Animmal,https://www.shutterstock.com/image-vector/cartoon-zebra-lively-character-known-260nw-2467359401.jpg
+66,wolf,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\wolf.png
+67,leopard,Wild Animal,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/leopard.webp
+68,cheetah,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\cheetah.png
+69,bear,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\bear.jpeg
+70,kangaroo,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\kangaroo.png
+71,rhino,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\rhino.avif
+72,fox,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\fox.jpeg
+73,deer,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\deer.png
+74,raccoon,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\raccoon.png
+75,Gorilla,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\gorilla.avif
+76,jackal,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\jackal.png
+77,hyena,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\hyena.avif
+78,moose,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\moose.png
+79,sloth,Wild Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\sloth.avif
+80,wildboar,Wild Animal,file:///C:/Users/lenovo/Documents/winter_internship/wildanimals/wildboar.webp
+81,leopard,Jungle Animal,https://img.freepik.com/premium-vector/cartoon-leopard-walking_43633-3051.jpg?semt=ais_hybrid
+82,monkey,Jungle Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\monkey.avif
+83,anaconda,Jungle Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\anaconda.avif
+84,chimpanzee,Jungle Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\chimpanzee.avif
+85,macaque,Jungle Animal,C:\Users\lenovo\Documents\winter_internship\wildanimals\macaque.avif
