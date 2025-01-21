@@ -245,7 +245,7 @@ def login_page():
             if user:
                 st.session_state.log = 2
                 st.session_state.child_id = user["child_id"] 
-                st.success(f"Welcome {user}! You have successfully logged in.")
+                st.success(f"Welcome! You have successfully logged in.")
             else:
                 st.error("Invalid username or password. Please try again.")
         else:
@@ -267,7 +267,7 @@ def load_data_from_mysql_alpha():
 
             query = f"SELECT alphabet_name,attempt, correct, incorrect, timestamps, dates FROM alphabet_data where child_id={st.session_state.child_id};"
             df = pd.read_sql(query, conn)
-
+            print(df)
             return df
 
         except mysql.connector.Error as e:
@@ -1047,7 +1047,7 @@ if st.session_state.log == 2:
                 conn = mysql.connector.connect(
                     **MYSQL_CONFIG
                 )
-                query = "SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data"
+                query = "SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data where child_id={st.session_state.child_id}"
                 df = pd.read_sql(query, conn)
 
                 return df
@@ -1064,7 +1064,7 @@ if st.session_state.log == 2:
 
             # Load data from MySQL
             df = load_data_from_mysql()
-
+            print(df)
             if df.empty:
                 st.warning("No data available.")
                 return
@@ -1169,7 +1169,7 @@ if st.session_state.log == 2:
                 database='child_learning'
             )
 
-            query = "SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data"
+            query = "SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data where child_id={st.session_state.child_id}"
 
             df = pd.read_sql(query, con=connection)
             connection.close()
