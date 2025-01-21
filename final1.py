@@ -1169,7 +1169,7 @@ if st.session_state.log == 2:
                 database='child_learning'
             )
 
-            query = "SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data where child_id={st.session_state.child_id}"
+            query = f"SELECT animal_name, category, attempt, correct, incorrect, timestamps, dates FROM animal_data where child_id={st.session_state.child_id}"
 
             df = pd.read_sql(query, con=connection)
             connection.close()
