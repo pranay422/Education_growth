@@ -463,7 +463,7 @@ if st.session_state.log == 2:
         # Optionally, display the data in a more user-friendly format
         for index, row in df.iterrows():
             # Change the color of the child name (left side)
-            st.markdown(f"<p style='color:white; display:inline-block'>Child Name : {row['child_name']}  </br> User Name : {row['username']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='color:black; display:inline-block'>Child Name : {row['child_name']}  </br> User Name : {row['username']}</p>", unsafe_allow_html=True)
             
             # Add space between the child name and username
             st.write("    ")
