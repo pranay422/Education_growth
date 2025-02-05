@@ -132,7 +132,7 @@ def generate_audio(text, filename):
 MYSQL_CONFIG = {
         "host": '127.0.0.1',
         "user": 'root',
-        "password": '9545883002@Sj',
+        "password": 'Pranay_123',
         "database": 'child_learning'
     }
 
