@@ -1178,7 +1178,7 @@ if st.session_state.log == 2:
             connection = mysql.connector.connect(
                 host='127.0.0.1',
                 user='root',
-                password='9545883002@Sj',
+                password='Pranay_123',
                 database='child_learning'
             )
 
